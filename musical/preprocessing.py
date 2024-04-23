@@ -267,7 +267,7 @@ def identify_distinct_cluster(X, H, frac_thresh=0.05):
     return k, clusters, Xs, distinct
 
 
-def stratify_samples(X, H=None, sil_thresh=0.9,
+def stratify_samples(X, H=None, sil_thresh=0.7,
                      max_k=20, nrefs=50, metric='cosine', linkage_method='average', ref_method='a'):
     """Stratify samples by clustering with automatic selection of cluster number.
 
@@ -281,7 +281,7 @@ def stratify_samples(X, H=None, sil_thresh=0.9,
     H : array-like of shape (n_components, n_samples)
         Optional exposure matrix.
 
-    sil_thresh : float, default 0.9
+    sil_thresh : float, default 0.7
         Silhouette score threshold. After determining the optimal number of clusters (k) by OptimalK,
         if the optimal k is greater than 1, we check the per-cluster silhouette scores. If there is at least
         one cluster with a silhouette score > sil_thresh, we accept the clustering into k clusters. Otherwise,
