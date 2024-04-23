@@ -67,7 +67,7 @@ To achieve this goal, a complete pipeline involves several steps (see the figure
 - Then, *de novo* signatures are matched to a catalog of known signatures (**matching**), since each *de novo* signature could be a mixture of multiple underlying signatures, due to lack of power in the *de novo* discovery step.
 - Subsequently, refined exposures are recalculated through the **refitting** step. MuSiCal utilizes a novel algorithm called likelihood-based sparse nonnegative least squares (NNLS) for both matching and refitting.
 - Finally, MuSiCal enables validating the obtained results through the **_in silico_ validation** module to identify potential issues. The *in silico* validation module can also be used for systematic parameter optimization for matching and refitting.
-- In addition, MuSiCal provides **preprocessing** functionalities for automatic cohort stratification and outlier removal, to further improve the sensitivity of *de novo* signature discovery.
+- In addition, MuSiCal provides **preprocessing** functionalities for automatic cohort stratification and outlier removal, to further improve the sensitivity of *de novo* signature discovery. See [example scripts](./examples/example_preprocessing.ipynb)
 
 [Example scripts](./examples/example_full_pipeline.ipynb) are provided to illustrate the full pipeline described above using a synthetic dataset.
 
