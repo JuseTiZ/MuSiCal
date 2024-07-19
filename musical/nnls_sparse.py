@@ -685,12 +685,14 @@ class SparseNNLS:
         self.X_reconstructed = pd.DataFrame(np.array([self.W.values @ h for h in self.H.T.values]).T,
                                             columns=self.X.columns, index=self.X.index)
         self.cos_similarities = []
+        self.pearson_r = []
         self.matched_sigs = []
         self.coefficients = []
         for x, h, x_reconstructed in zip(self.X.T.values, self.H.T.values, self.X_reconstructed.T.values):
             self.matched_sigs.append(self.sigs_all[h > 0])
             self.coefficients.append(h[h > 0])
             self.cos_similarities.append(1 - sp.spatial.distance.cosine(x, x_reconstructed))
+            self.pearson_r.append(stats.pearsonr(x, x_reconstructed)[0])
 
         self.sigs_reduced = self.H.index[self.H.sum(1) > 0].values
         self.W_reduced = pd.DataFrame.copy(self.W[self.sigs_reduced])
